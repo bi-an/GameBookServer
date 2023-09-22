@@ -17,7 +17,7 @@ build(){
             rm CMakeCache.txt
             make clean 
         else
-            cmake3 -DCMAKE_BUILD_TYPE=${buildType} ./ 
+            cmake -DCMAKE_BUILD_TYPE=${buildType} ./ 
             make
         fi
         cd ..
