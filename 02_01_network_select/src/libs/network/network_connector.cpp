@@ -40,7 +40,7 @@ bool NetworkConnector::Connect(std::string ip, int port)
 	int rs = ::connect(_masterSocket, (struct sockaddr *)&addr, sizeof(sockaddr));
 	if (rs == 0)
 	{
-		// ³É¹¦
+		// æˆåŠŸ
 		ConnectObj* pConnectObj = new ConnectObj(this, _masterSocket);
 		_connects.insert(std::make_pair(_masterSocket, pConnectObj));
 	}
@@ -53,12 +53,12 @@ bool NetworkConnector::Update()
 	const bool br = Select();
 	if (!IsConnected())
 	{
-		// ÓĞÒì³£³öÏÖ
+		// æœ‰å¼‚å¸¸å‡ºç°
 		if (FD_ISSET(_masterSocket, &exceptfds))
 		{
 			std::cout << "connect except. socket:" << _masterSocket << " re connect." << std::endl;
 
-			// ¹Ø±Õµ±Ç°socket£¬ÖØĞÂconnect
+			// å…³é—­å½“å‰socketï¼Œé‡æ–°connect
 			Dispose();
 			Connect(_ip, _port);
 			return br;
@@ -78,7 +78,7 @@ bool NetworkConnector::Update()
 			{
 				std::cout << "connect failed. socket:" << _masterSocket << " re connect." << std::endl;
 
-				// ¹Ø±Õµ±Ç°socket£¬ÖØĞÂconnect
+				// å…³é—­å½“å‰socketï¼Œé‡æ–°connect
 				Dispose();
 				Connect(_ip, _port);
 			}

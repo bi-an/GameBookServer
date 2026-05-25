@@ -54,7 +54,7 @@ char* Packet::GetBuffer() const
 void Packet::AddBuffer(const char* pBuffer, const unsigned int size)
 {
 	while (GetEmptySize() < size)
-	{		
+	{
 		ReAllocBuffer();
 	}
 

@@ -38,7 +38,7 @@ void Thread::Update() {
 
         pTObj->Update();
 
-        // ·Ç¼¤»î×´Ì¬£¬É¾³ý
+        // éžæ¿€æ´»çŠ¶æ€ï¼Œåˆ é™¤
         if (!pTObj->IsActive()) {
 
             _thread_lock.lock();
